@@ -63,6 +63,14 @@ countries = st.multiselect('Countries',[
     "Sweden",
     "Thailand",
     "Turkey",
+],default=[
+    "Austria",
+    "Germany",
+    "Iceland",
+    "Spain",
+    "Sweden",
+    "Thailand",
+    "Turkey",
 ])
 subset = subset[subset["Country"].isin(countries)]
 ### P2.3 ###
@@ -87,9 +95,9 @@ ages = [
     "Age >64",
 ]
 
-chart = alt.Chart(subset).mark_bar().encode(
+chart = alt.Chart(subset).mark_rect().encode(
     x=alt.X("Age", sort=ages),
-    y=alt.Y("Rate", title="Mortality rate per 100k"),
+    y=alt.Y("Rate", title="Mortality rate per 100k", domain=(0.01, 1000), clamp=True),
     color="Country",
     tooltip=["Rate"],
 ).properties(
