@@ -64,14 +64,13 @@ countries = st.multiselect('Countries',[
     "Thailand",
     "Turkey",
 ])
-
 subset = subset[subset["Country"].isin(countries)]
 ### P2.3 ###
 
 
 ### P2.4 ###
 # replace with st.selectbox
-cancer = "Malignant neoplasm of stomach"
+cancer = st.selectbox('Cancer',set(df['Cancer']))
 subset = subset[subset["Cancer"] == cancer]
 ### P2.4 ###
 
