@@ -40,14 +40,14 @@ st.write("## Age-specific cancer mortality rates")
 
 ### P2.1 ###
 # replace with st.slider
-year = st.slider('Year',min_value=1994,max_value=2020)
+year = st.slider('Year',min_value=1994,max_value=2020,value=2012)
 subset = df[df["Year"] == year]
 ### P2.1 ###
 
 
 ### P2.2 ###
 # replace with st.radio
-sex = st.radio('Sex',['M','F'])
+sex = st.radio('Sex',['M','F'],index=0)
 subset = subset[subset["Sex"] == sex]
 ### P2.2 ###
 
@@ -78,7 +78,7 @@ subset = subset[subset["Country"].isin(countries)]
 
 ### P2.4 ###
 # replace with st.selectbox
-cancer = st.selectbox('Cancer',set(df['Cancer']))
+cancer = st.selectbox('Cancer',set(df['Cancer']),index=1)
 subset = subset[subset["Cancer"] == cancer]
 ### P2.4 ###
 
