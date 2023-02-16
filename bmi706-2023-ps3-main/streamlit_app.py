@@ -94,7 +94,7 @@ ages = [
     "Age 55-64",
     "Age >64",
 ]
-
+brush = alt.selection_interval(encodings=['x'])
 chart = alt.Chart(subset).mark_rect().encode(
     x=alt.X("Age", sort=ages),
     y=alt.Y("Country"),
@@ -102,7 +102,7 @@ chart = alt.Chart(subset).mark_rect().encode(
     tooltip=["Rate"],
 ).properties(
     title=f"{cancer} mortality rates for {'males' if sex == 'M' else 'females'} in {year}",
-)
+).add_selection(brush)
 ### P2.5 ###
 
 st.altair_chart(chart, use_container_width=True)
@@ -118,8 +118,9 @@ if len(countries_in_subset) != len(countries):
 # P2.6
 chart_2 = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Pop",aggregate='sum'),
-    y=alt.Y("Country")
+    y=alt.Y("Country",sort = '-x')
+).transform_filter(
+    brush
 )
-
 st.altair_chart(chart_2, use_container_width=True)
 
