@@ -105,7 +105,6 @@ chart = alt.Chart(subset).mark_rect().encode(
 ).add_selection(brush)
 ### P2.5 ###
 
-st.altair_chart(chart, use_container_width=True)
 
 countries_in_subset = subset["Country"].unique()
 if len(countries_in_subset) != len(countries):
@@ -122,5 +121,6 @@ chart_2 = alt.Chart(subset).mark_bar().encode(
 ).transform_filter(
     brush
 )
-st.altair_chart(chart_2, use_container_width=True)
+chart_all = chart & chart_2
+st.altair_chart(chart_all, use_container_width=True)
 
