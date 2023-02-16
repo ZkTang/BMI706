@@ -102,6 +102,8 @@ chart = alt.Chart(subset).mark_rect().encode(
     tooltip=["Rate"],
 ).properties(
     title=f"{cancer} mortality rates for {'males' if sex == 'M' else 'females'} in {year}",
+    width=1120,
+    height=737
 ).add_selection(brush)
 ### P2.5 ###
 
