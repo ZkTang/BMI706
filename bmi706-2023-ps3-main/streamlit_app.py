@@ -117,7 +117,7 @@ if len(countries_in_subset) != len(countries):
 
 # P2.6
 chart_2 = alt.Chart(subset).mark_bar().encode(
-    x=alt.X("Pop"),
+    x=alt.X("Pop",aggregate='sum'),
     y=alt.Y("Country")
 )
 
