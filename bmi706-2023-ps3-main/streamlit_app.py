@@ -114,3 +114,12 @@ if len(countries_in_subset) != len(countries):
     else:
         missing = set(countries) - set(countries_in_subset)
         st.write("No data available for " + ", ".join(missing) + ".")
+
+# P2.6
+chart_2 = alt.Chart(subset).mark_bar().encode(
+    x=alt.X("Pop"),
+    y=alt.Y("Country")
+)
+
+st.altair_chart(chart_2, use_container_width=True)
+
