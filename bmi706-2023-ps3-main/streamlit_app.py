@@ -122,5 +122,5 @@ chart_2 = alt.Chart(subset).mark_bar().encode(
     brush
 )
 chart_all = chart & chart_2
-st.altair_chart(chart_all, use_container_width=True)
+st.altair_chart(chart_all)
 
